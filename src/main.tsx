@@ -1,4 +1,5 @@
 import Fallback from '@components/Fallback';
+import { ProvideFavorites } from '@hooks/useFavorites';
 import { ProvidePokedex } from '@hooks/usePokedex';
 import { ProvideTheme } from '@hooks/useTheme';
 import { Suspense } from 'react';
@@ -19,11 +20,13 @@ if (!root) {
 ReactDOM.createRoot(root).render(
   <ProvideTheme>
     <ProvidePokedex>
-      <Suspense fallback={<Fallback />}>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-      </Suspense>
+      <ProvideFavorites>
+        <Suspense fallback={<Fallback />}>
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+        </Suspense>
+      </ProvideFavorites>
     </ProvidePokedex>
   </ProvideTheme>
 );
