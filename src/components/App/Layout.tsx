@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import Topbar from './Topbar';
 
-export default function Layout({ children }: IChildren) {
+export default function Layout({ children }: IParent) {
   return (
     <Container
       maxWidth="lg"

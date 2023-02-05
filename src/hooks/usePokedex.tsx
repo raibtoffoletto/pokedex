@@ -12,7 +12,7 @@ import {
 } from 'react';
 
 interface IPokedexContext {
-  pokemons: PokemonCard[];
+  pokemons: IPokemon[];
   isReady: boolean;
   isLastPage: boolean;
   loadNextPage: () => Promise<void>;
@@ -60,7 +60,7 @@ const initialPageState = {
 async function getPage(
   page: number,
   signal?: AbortSignal
-): Promise<Repository<PokemonCard>> {
+): Promise<Repository<IPokemon>> {
   const limit = POKEMON_PAGE_SIZE;
   const offset = POKEMON_PAGE_SIZE * page;
 
@@ -87,10 +87,10 @@ async function getPage(
   };
 }
 
-export function PokedexProvider({ children }: IChildren) {
+export function PokedexProvider({ children }: IParent) {
   const fetching = useRef(false);
   const [isReady, setReady] = useState(false);
-  const [pokemons, setPokemons] = useState<PokemonCard[]>([]);
+  const [pokemons, setPokemons] = useState<IPokemon[]>([]);
   const [{ page, totalRecords }, pageDispatcher] = useReducer(
     pageReducer,
     initialPageState

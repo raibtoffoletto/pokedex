@@ -1,8 +1,8 @@
-interface IChildren {
+interface IParent {
   children: React.ReactNode;
 }
 
-interface PokemonCard {
+interface IPokemon {
   id: number;
   name: string;
 }

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-export default function Pokedex({ children }: IChildren) {
+export default function Pokedex({ children }: IParent) {
   return (
     <Box
       sx={{

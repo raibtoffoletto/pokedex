@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-export default function Card({ name, id }: PokemonCard) {
+export default function Card({ name, id }: IPokemon) {
   const navigate = useNavigate();
 
   const target = `${APP_ROUTES.BASE}${id}`;

@@ -16,7 +16,7 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-export function ProvideTheme({ children }: IChildren) {
+export function ProvideTheme({ children }: IParent) {
   const [darkTheme, setDarkTheme] = useState<boolean>(
     localStorage.getItem(LOCAL_STORAGE_KEYS.DARK_MODE) === 'true' || false
   );
