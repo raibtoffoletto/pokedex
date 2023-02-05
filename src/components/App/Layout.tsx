@@ -14,7 +14,17 @@ export default function Layout({ children }: IChildren) {
     >
       <Topbar />
 
-      {children}
+      <Container
+        disableGutters
+        component="main"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: { xs: 2, sm: 4 },
+        }}
+      >
+        {children}
+      </Container>
     </Container>
   );
 }

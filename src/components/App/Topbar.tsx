@@ -5,7 +5,7 @@ import ThemeSwitch from './ThemeSwitch';
 
 export default function Topbar() {
   return (
-    <Toolbar disableGutters sx={{ gap: 1 }}>
+    <Toolbar disableGutters sx={{ gap: 1 }} component="header">
       <Logo />
 
       <Box
