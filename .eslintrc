@@ -3,11 +3,12 @@
     "es2021": true,
     "browser": true
   },
-  "plugins": ["prettier", "react", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier", "react-hooks", "react"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react/recommended"
   ],
