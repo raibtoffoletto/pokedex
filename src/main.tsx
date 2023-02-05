@@ -1,5 +1,6 @@
+import Fallback from '@components/Fallback';
+import { ProvidePokedex } from '@hooks/usePokedex';
 import { ProvideTheme } from '@hooks/useTheme';
-import { CircularProgress } from '@mui/material';
 import { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -13,14 +14,16 @@ if (!root) {
 
 /**
  * Set up context providers for theming,
- * and routing.
+ * favorites, api and routing.
  */
 ReactDOM.createRoot(root).render(
   <ProvideTheme>
-    <Suspense fallback={<CircularProgress size="5rem" />}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-    </Suspense>
+    <ProvidePokedex>
+      <Suspense fallback={<Fallback />}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </Suspense>
+    </ProvidePokedex>
   </ProvideTheme>
 );
