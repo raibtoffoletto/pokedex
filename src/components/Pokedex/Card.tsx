@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Favorite from './Favorite';
 
 export default function Card({ name, id }: IPokemon) {
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ export default function Card({ name, id }: IPokemon) {
   const target = `${APP_ROUTES.BASE}${id}`;
 
   return (
-    <MUICard>
+    <MUICard sx={{ position: 'relative' }}>
+      <Favorite name={name} id={id} />
+
       <CardActionArea
         component="a"
         href={target}

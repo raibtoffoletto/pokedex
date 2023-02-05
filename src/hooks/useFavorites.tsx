@@ -20,7 +20,7 @@ const FavoritesContext = createContext<IFavoritesContext>({
   toggleFavorite: () => undefined,
 });
 
-export function useTheme() {
+export function useFavorites() {
   return useContext(FavoritesContext);
 }
 
@@ -44,7 +44,7 @@ function FavoritesProvider({ children }: IParent) {
       const index = _favorites.findIndex((x) => x.id === pokemon.id);
 
       if (index >= 0) {
-        return _favorites.filter((x) => x.id === pokemon.id);
+        return _favorites.filter((x) => x.id !== pokemon.id);
       }
 
       const newFavorites = _favorites.slice().concat([pokemon]);

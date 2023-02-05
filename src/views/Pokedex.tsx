@@ -10,7 +10,7 @@ export default function Pokedex() {
 
   return (
     <>
-      <PageTitle title="All Pokemons" />
+      <PageTitle title="Pokemon List" />
 
       {isReady ? (
         <>
