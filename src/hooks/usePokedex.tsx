@@ -73,7 +73,7 @@ async function getPage(
     throw new Error(req.statusText);
   }
 
-  const res: Repository<PokemonRepository> = await req.json();
+  const res: Repository<APIEntity> = await req.json();
 
   return {
     ...res,
@@ -133,7 +133,7 @@ export function PokedexProvider({ children }: IParent) {
 
         fetching.current = true;
 
-        const { count, results } = await getPage(0);
+        const { count, results } = await getPage(0, controller.signal);
 
         fetching.current = false;
 
