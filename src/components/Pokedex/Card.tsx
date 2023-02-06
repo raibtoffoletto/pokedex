@@ -12,7 +12,7 @@ import Favorite from './Favorite';
 export default function Card({ name, id }: IPokemon) {
   const navigate = useNavigate();
 
-  const target = `${APP_ROUTES.BASE}${id}`;
+  const target = `${APP_ROUTES.BASE}${name}`;
 
   return (
     <MUICard sx={{ position: 'relative' }}>
