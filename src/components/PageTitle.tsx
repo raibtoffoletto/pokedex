@@ -47,6 +47,7 @@ export default function PageTitle({ title, withReturn }: PageTitleProps) {
       align="center"
       sx={{
         position: 'relative',
+        textTransform: 'capitalize',
         fontSize: {
           xs: '2rem',
           sm: '3rem',
