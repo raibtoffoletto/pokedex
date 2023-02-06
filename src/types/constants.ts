@@ -1,6 +1,7 @@
 export const APP_ROUTES = Object.freeze({
   BASE: '/',
   FAVORITES: '/favorites',
+  404: '/notfound',
 });
 
 export const LOCAL_STORAGE_KEYS = Object.freeze({

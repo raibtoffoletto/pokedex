@@ -1,7 +1,9 @@
-import { POKE_API_PREFIX } from '@constants';
+import { APP_ROUTES, POKE_API_PREFIX } from '@constants';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function usePokemon(pokemonName = '') {
+  const navigate = useNavigate();
   const [pokemon, setPokemon] = useState<PokemonPage | undefined>(undefined);
 
   useEffect(() => {
@@ -44,6 +46,8 @@ export default function usePokemon(pokemonName = '') {
       } catch (error) {
         // eslint-disable-next-line
         console.error(error);
+
+        navigate(APP_ROUTES[404]);
       }
     }
 
@@ -54,7 +58,7 @@ export default function usePokemon(pokemonName = '') {
         controller.abort();
       }
     };
-  }, [pokemonName]);
+  }, [navigate, pokemonName]);
 
   return pokemon;
 }

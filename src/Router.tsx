@@ -39,6 +39,10 @@ export default function Router() {
       element: <Favorites />,
     },
     {
+      path: APP_ROUTES[404],
+      element: <NotFound />,
+    },
+    {
       path: '*',
       element: <NotFound />,
     },
