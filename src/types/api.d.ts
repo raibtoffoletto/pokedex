@@ -5,7 +5,24 @@ interface Repository<T = void> {
   results: T[];
 }
 
-interface PokemonRepository {
+interface APIEntity {
   name: string;
   url: string;
+}
+
+interface Pokemon {
+  id: number;
+  height: number;
+  weight: number;
+  base_experience: number;
+  abilities: {
+    ability: APIEntity;
+  }[];
+  types: {
+    type: APIEntity;
+  }[];
+  stats: {
+    base_stat: number;
+    stat: APIEntity;
+  }[];
 }

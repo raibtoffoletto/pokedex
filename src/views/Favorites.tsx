@@ -12,7 +12,7 @@ export default function Favorites() {
 
   return (
     <>
-      <PageTitle withReturn title="My Selection" />
+      <PageTitle withReturn returnHome title="My Selection" />
 
       <Grid>
         {favorites.map((pokemon) => (

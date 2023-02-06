@@ -1,13 +1,18 @@
+import { APP_ROUTES } from '@constants';
 import { Reply } from '@mui/icons-material';
 import { IconButton, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-interface PageTitleProps {
+interface ReturnButtonProps {
+  returnHome?: boolean;
+}
+
+interface PageTitleProps extends ReturnButtonProps {
   title: string;
   withReturn?: boolean;
 }
 
-function ReturnButton() {
+function ReturnButton({ returnHome }: ReturnButtonProps) {
   const navigate = useNavigate();
 
   return (
@@ -19,6 +24,12 @@ function ReturnButton() {
         position: 'absolute',
       }}
       onClick={() => {
+        if (returnHome) {
+          navigate(APP_ROUTES.BASE);
+
+          return;
+        }
+
         navigate(-1);
       }}
     >
@@ -40,7 +51,11 @@ function ReturnButton() {
   );
 }
 
-export default function PageTitle({ title, withReturn }: PageTitleProps) {
+export default function PageTitle({
+  title,
+  withReturn,
+  returnHome,
+}: PageTitleProps) {
   return (
     <Typography
       component="h1"
@@ -55,7 +70,7 @@ export default function PageTitle({ title, withReturn }: PageTitleProps) {
         },
       }}
     >
-      {!!withReturn && <ReturnButton />}
+      {!!withReturn && <ReturnButton returnHome={returnHome} />}
 
       {title}
     </Typography>

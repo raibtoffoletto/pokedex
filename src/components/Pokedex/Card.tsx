@@ -9,6 +9,13 @@ import {
 import { useNavigate } from 'react-router-dom';
 import Favorite from './Favorite';
 
+/**
+ * TODO: move utility functions to their own files.
+ */
+export function getIdLabel(id: number) {
+  return `#${`${id}`.padStart(5, '0')}`;
+}
+
 export default function Card({ name, id }: IPokemon) {
   const navigate = useNavigate();
 
@@ -52,7 +59,7 @@ export default function Card({ name, id }: IPokemon) {
           />
 
           <Typography variant="caption" component="div" sx={{ width: '100%' }}>
-            {`#${`${id}`.padStart(5, '0')}`}
+            {getIdLabel(id)}
           </Typography>
 
           <Typography
