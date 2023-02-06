@@ -37,8 +37,8 @@ export default function Page({
           alt={name}
           src={`${POKE_AVATAR_PREFIX}/${id}.png`}
           sx={{
-            width: 192,
-            height: 192,
+            width: 256,
+            height: 256,
             fontSize: '3rem',
           }}
         />
