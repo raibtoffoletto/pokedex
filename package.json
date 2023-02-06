@@ -26,7 +26,7 @@
     "dev": "vite",
     "build": "yarn lint && vite build",
     "lint": "tsc --noEmit && yarn eslint",
-    "preview": "vite preview"
+    "preview": "yarn build && vite preview"
   },
   "devDependencies": {
     "@types/node": "18.11.19",
