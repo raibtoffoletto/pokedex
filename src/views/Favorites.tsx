@@ -3,6 +3,10 @@ import Card from '@components/Pokedex/Card';
 import Grid from '@components/Pokedex/Grid';
 import { useFavorites } from '@hooks/useFavorites';
 
+/**
+ * TODO: Implement react-transition-group to easy up
+ * the removal of favorits
+ */
 export default function Favorites() {
   const { favorites } = useFavorites();
 

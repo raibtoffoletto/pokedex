@@ -5,6 +5,10 @@ import Grid from '@components/Pokedex/Grid';
 import Loader from '@components/Pokedex/Loader';
 import { usePokedex } from '@hooks/usePokedex';
 
+/**
+ * TODO: extract pokemon list to own component
+ * for implementation of tests.
+ */
 export default function Pokedex() {
   const { isReady, pokemons, isLastPage } = usePokedex();
 
