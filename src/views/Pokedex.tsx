@@ -18,7 +18,7 @@ export default function Pokedex() {
 
       {isReady ? (
         <>
-          <Grid>
+          <Grid disableMargin={!isLastPage}>
             {pokemons.map((pokemon) => (
               <Card key={pokemon.id} {...pokemon} />
             ))}
