@@ -26,24 +26,33 @@
     "dev": "vite",
     "build": "yarn lint && vite build",
     "lint": "tsc --noEmit && yarn eslint",
-    "preview": "yarn build && vite preview"
+    "preview": "yarn build && vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/react-hooks": "8.0.1",
+    "@testing-library/user-event": "14.4.3",
     "@types/node": "18.11.19",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "@typescript-eslint/eslint-plugin": "5.50.0",
     "@typescript-eslint/parser": "5.50.0",
     "@vitejs/plugin-react": "3.1.0",
+    "@vitest/coverage-c8": "0.28.4",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jsdom": "21.1.0",
     "prettier": "2.8.3",
     "typescript": "4.9.3",
     "vite": "4.1.0",
-    "vite-plugin-pwa": "0.14.1"
+    "vite-plugin-pwa": "0.14.1",
+    "vitest": "0.28.4"
   },
   "dependencies": {
     "@emotion/react": "11.10.5",

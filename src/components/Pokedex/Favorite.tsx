@@ -25,6 +25,7 @@ export default function Favorite({ name, id }: IPokemon) {
         toggleFavorite({ name, id });
       }}
     >
+      {`${isFavorite(id)}`}
       {isFavorite(id) ? <FavedIcon /> : <UnFavedIcon />}
     </IconButton>
   );

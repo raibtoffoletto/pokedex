@@ -20,6 +20,7 @@
       "@components/*": ["src/components/*"],
       "@constants": ["src/types/constants"],
       "@hooks/*": ["src/hooks/*"],
+      "@tests": ["setupTests"],
       "@views/*": ["src/views/*"]
     }
   },

@@ -1,8 +1,14 @@
 import react from '@vitejs/plugin-react';
 import { join } from 'path';
+import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import type { InlineConfig } from 'vitest';
 import { dependencies } from './package.json';
+
+interface VitestConfigExport extends UserConfig {
+  test: InlineConfig;
+}
 
 function renderChunks(deps: Record<string, string>) {
   const chunks = {};
@@ -65,6 +71,7 @@ export default defineConfig({
       '@components': join(__dirname, 'src/components'),
       '@constants': join(__dirname, 'src/types/constants.ts'),
       '@hooks': join(__dirname, 'src/hooks'),
+      '@tests': join(__dirname, 'setupTests.ts'),
       '@views': join(__dirname, 'src/views'),
     },
   },
@@ -97,4 +104,12 @@ export default defineConfig({
       },
     },
   },
-});
+
+  test: {
+    globals: true,
+
+    environment: 'jsdom',
+
+    setupFiles: './setupTests.ts',
+  },
+} as VitestConfigExport);

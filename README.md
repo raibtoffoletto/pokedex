@@ -20,11 +20,17 @@ git clone https://github.com/raibtoffoletto/pokedex.git
 cd pokedex
 yarn install
 
-# Run develop mode
+# Run in develop mode
 yarn dev
 
-# Run compiled version
+# Run tests 
+yarn test
+
+# Preview the compiled version
 yarn preview
+
+# Build the final version
+yarn build
 ```
 
 ## Technical Description
@@ -42,6 +48,7 @@ yarn preview
 - `React Router` as page router.
 - `Material-UI` as basic UI components/Design system.
 - `Vite` as bundler and development/preview server.
+- `Vitest` with `@testing-library` as test suite.
 
 ## TODO List:
 
@@ -49,6 +56,6 @@ yarn preview
 
 - Implement browser's cache, SWR or other data-fetching method for better caching the pokemon list and details information locally.
 
-- Implement UI tests for the components using a mock context to control outputs.
+- Complement UI tests for the components using mocked contexts to control outputs.
 
-- Implemente hooks tests with a mock api and components to test the context provider outputs.
+- Implement tests for the hooks/contexts with a mocked api and mock components.
