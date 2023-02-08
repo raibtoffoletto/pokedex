@@ -4,6 +4,10 @@ Simple Pokédex SPA built with React on top of the [PokeAPI.co](https://pokeapi.
 
 This project is part of a `Code Challenge` for [TEKEVER](https://tekever.com/)
 
+### Demo
+
+A demo version is available at [https://pokedex.yanderuh.toffoletto.me](https://pokedex.yanderuh.toffoletto.me)
+
 ## Dependencies
 
 - NodeJS (16+)
@@ -20,10 +24,10 @@ git clone https://github.com/raibtoffoletto/pokedex.git
 cd pokedex
 yarn install
 
-# Run in develop mode
+# Run in development mode
 yarn dev
 
-# Run tests 
+# Run tests
 yarn test
 
 # Preview the compiled version
@@ -31,6 +35,9 @@ yarn preview
 
 # Build the final version
 yarn build
+
+# To serve the compiled project locally
+npx serve -s build
 ```
 
 ## Technical Description
