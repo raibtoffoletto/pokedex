@@ -29,7 +29,7 @@ export default function Logo() {
       }}
     >
       <Box display={{ xs: 'none', sm: 'flex' }}>
-        <img src="/logo.png" height={48} alt="Pokedex Logo" loading="lazy" />
+        <img src="/logo.png" alt="Pokedex Logo" loading="lazy" />
       </Box>
 
       <Avatar
