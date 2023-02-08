@@ -26,7 +26,7 @@ export default function Page({
   stats,
 }: PokemonPage) {
   return (
-    <Container maxWidth="sm" disableGutters sx={{ ...FLEX_SX, mb: 12 }}>
+    <Container maxWidth="sm" disableGutters sx={{ ...FLEX_SX }}>
       <Box
         sx={{
           ...FLEX_SX,
@@ -44,7 +44,7 @@ export default function Page({
         />
       </Box>
 
-      <DetailWrapper sx={{ ...FLEX_SX }}>
+      <DetailWrapper sx={{ ...FLEX_SX, mb: 8 }}>
         <Detail title="Id" value={getIdLabel(id)} />
 
         <Detail title="Height" value={`${height}`} />

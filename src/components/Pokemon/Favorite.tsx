@@ -4,36 +4,21 @@ import {
   FavoriteBorder as UnFavedIcon,
 } from '@mui/icons-material';
 import { Fab, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 
 export default function Favorite({ name, id }: IPokemon) {
   const { isFavorite, toggleFavorite } = useFavorites();
-  const [container] = useState(document.createElement('div'));
 
   const faved = isFavorite(id);
 
-  useEffect(() => {
-    if (!document.body.contains(container)) {
-      document.body.appendChild(container);
-    }
-
-    return () => {
-      if (document.body.contains(container)) {
-        document.body.removeChild(container);
-      }
-    };
-  }, [container]);
-
-  return createPortal(
+  return (
     <Fab
       color="error"
       aria-label={`toggle favorite ${name}`}
       variant="extended"
       sx={{
-        right: 16,
-        bottom: 16,
-        position: 'fixed',
+        right: { xs: 'unset', sm: 32, md: 64, lg: 128, xl: 256 },
+        bottom: { xs: 16, sm: 32 },
+        position: { xs: 'sticky', sm: 'fixed' },
 
         '& svg': {
           width: { xs: 24, sm: 32 },
@@ -55,7 +40,6 @@ export default function Favorite({ name, id }: IPokemon) {
       </Typography>
 
       {faved ? <FavedIcon /> : <UnFavedIcon />}
-    </Fab>,
-    container
+    </Fab>
   );
 }
