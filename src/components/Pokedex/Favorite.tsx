@@ -13,6 +13,9 @@ export default function Favorite({ name, id }: IPokemon) {
       color="error"
       aria-label={`toggle favorite for ${name}`}
       sx={{
+        p: 1.5,
+        mt: -0.5,
+        mr: -0.5,
         top: 0,
         right: 0,
         zIndex: 100,
