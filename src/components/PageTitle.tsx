@@ -18,6 +18,7 @@ function ReturnButton({ returnHome }: ReturnButtonProps) {
   return (
     <IconButton
       size="large"
+      aria-label={returnHome ? 'return home' : 'return to previous page'}
       sx={{
         top: 0,
         left: 0,
