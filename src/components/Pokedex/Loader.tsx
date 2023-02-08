@@ -39,7 +39,7 @@ export default function Loader() {
         minHeight: 56,
       }}
     >
-      <CircularProgress />
+      <CircularProgress aria-label="loading more pokemons" />
     </Box>
   );
 }

@@ -60,6 +60,13 @@ export default function ThemeSwitch() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <MaterialUISwitch sx={{ m: 1 }} checked={isDark} onChange={toggleTheme} />
+    <MaterialUISwitch
+      sx={{ m: 1 }}
+      checked={isDark}
+      onChange={toggleTheme}
+      inputProps={{
+        'aria-label': 'switch color scheme',
+      }}
+    />
   );
 }

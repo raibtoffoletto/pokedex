@@ -4,6 +4,7 @@ export default function Fallback() {
   return (
     <CircularProgress
       size="4rem"
+      aria-label="loading app"
       sx={{
         position: 'absolute',
         top: 'calc(50% - 2rem)',
