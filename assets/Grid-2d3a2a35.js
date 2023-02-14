@@ -1,0 +1,1 @@
+import{j as i}from"./@mui/icons-material-aab717a7.js";import{b as m}from"./@mui/material-a63b5765.js";function e({children:r,disableMargin:a}){return i(m,{sx:{gap:2,display:"grid",width:"100%",maxWidth:"100%",gridTemplateColumns:"repeat(auto-fill, minmax(144px, 1fr))",mb:a?0:6},children:r})}export{e as P};
