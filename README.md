@@ -6,7 +6,7 @@ This project is part of a `Code Challenge` for [TEKEVER](https://tekever.com/)
 
 ### Demo
 
-A demo version is available at [https://pokedex.yanderuh.toffoletto.me](https://pokedex.yanderuh.toffoletto.me)
+A demo version is available at [https://pokedex-beta-blond.vercel.app](https://pokedex-beta-blond.vercel.app)
 
 ## Dependencies
 
