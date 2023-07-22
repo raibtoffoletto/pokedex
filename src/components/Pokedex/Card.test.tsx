@@ -1,53 +1,59 @@
+import { toggleFavorite } from '@mocks/FavoritesContext';
+import { pokemonList } from '@mocks/entities';
 import { navigate, render, screen, userEvent } from '@tests';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import Card from './Card';
-
-let isFaved = false;
-const isFavorite = vi.fn(() => isFaved);
-const toggleFavorite = vi.fn(() => (isFaved = !isFaved));
-
-vi.mock('@hooks/useFavorites', () => {
-  return {
-    useFavorites: () => ({ isFavorite, toggleFavorite }),
-  };
-});
 
 describe('pokemon card component', () => {
   beforeEach(() => {
     navigate.mockReset();
   });
 
-  it('should render name and id', () => {
-    render(<Card id={13} name="friday pokemon" />);
+  function setUp(id = 0) {
+    const pokemon = pokemonList?.[id];
 
-    expect(screen.getByText(/friday pokemon/i)).toBeInTheDocument();
-    expect(screen.getByText(/#00013/i)).toBeInTheDocument();
-  });
+    if (!pokemon) {
+      throw new Error('Pokemon not in mock list');
+    }
+
+    const utils = render(<Card id={pokemon.id} name={pokemon.name} />);
+
+    return {
+      pokemon,
+      ...utils,
+    };
+  }
+
+  for (const pokemonIndex in pokemonList) {
+    it(`should render name and id (${pokemonList[pokemonIndex].name})`, () => {
+      const { pokemon } = setUp(Number(pokemonIndex));
+
+      expect(screen.getByText(pokemon.name)).toBeInTheDocument();
+      expect(screen.getByText(`#0000${pokemon.id}`)).toBeInTheDocument();
+    });
+  }
 
   it('should navigate to pokemon page on card click', async () => {
-    render(<Card id={1} name="pokemon" />);
+    const { pokemon } = setUp();
 
     const user = userEvent.setup();
-
-    await user.click(screen.getByLabelText('pokemon'));
+    await user.click(screen.getByLabelText(pokemon.name));
 
     expect(navigate).toBeCalledTimes(1);
     expect(toggleFavorite).toBeCalledTimes(0);
   });
 
   it('should toggle favorite status for pokemon', async () => {
-    const { rerender } = render(<Card id={1} name="pokemon" />);
-
-    const user = userEvent.setup();
-
-    const button = screen.getByLabelText(/^toggle favorite.*/i);
+    const { rerender, pokemon } = setUp();
 
     expect(screen.queryByTestId('FavoriteBorderIcon')).toBeTruthy();
     expect(screen.queryByTestId('FavoriteIcon')).toBeFalsy();
 
+    const user = userEvent.setup();
+    const button = screen.getByLabelText(/^toggle favorite.*/i);
     await user.click(button);
 
-    rerender(<Card id={1} name="pokemon" />);
+    rerender(<Card id={pokemon.id} name={pokemon.name} />);
 
     expect(screen.queryByTestId('FavoriteIcon')).toBeTruthy();
     expect(screen.queryByTestId('FavoriteBorderIcon')).toBeFalsy();
