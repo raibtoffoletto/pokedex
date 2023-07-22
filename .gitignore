@@ -25,3 +25,5 @@ dist-ssr
 
 build
 vscode
+
+public/mockServiceWorker.js

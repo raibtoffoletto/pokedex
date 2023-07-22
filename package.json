@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev-msw": "VITE_MSW=true vite",
     "build": "yarn lint && vite build",
     "lint": "tsc --noEmit && yarn eslint",
     "preview": "yarn build && vite preview",
@@ -31,6 +32,7 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "14.0.0",
     "@testing-library/react-hooks": "8.0.1",
@@ -48,6 +50,7 @@
     "eslint-plugin-react": "7.33.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "jsdom": "22.1.0",
+    "msw": "1.2.3",
     "prettier": "3.0.0",
     "typescript": "5.1.6",
     "vite": "4.4.6",
@@ -62,5 +65,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.14.2"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

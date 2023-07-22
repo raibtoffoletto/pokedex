@@ -6,11 +6,16 @@ import { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
+import { worker } from './tests/msw/server';
 
 const root = document.getElementById('root');
 
 if (!root) {
   throw new Error('Root component not found.');
+}
+
+if (`${import.meta.env.VITE_MSW}`.toLowerCase() === 'true') {
+  worker.start({ quiet: true });
 }
 
 /**
