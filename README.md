@@ -2,7 +2,7 @@
 
 Simple Pokédex SPA built with React on top of the [PokeAPI.co](https://pokeapi.co). Consists of a pokémon list, detail page for each pokémon and a favorite list.
 
-This project is part of a `Code Challenge` for [TEKEVER](https://tekever.com/)
+This project was originally part of a `Code Challenge` for a job interview at [TEKEVER](https://tekever.com/), since then has become a playground for me to test new tools.
 
 ### Demo
 
@@ -62,7 +62,3 @@ npx serve -s build
 - Better layout and component refactoring for the Pokémon details page.
 
 - Implement browser's cache, SWR or other data-fetching method for better caching the pokemon list and details information locally.
-
-- Complement UI tests for the components using mocked contexts to control outputs.
-
-- Implement tests for the hooks/contexts with a mocked api and mock components.

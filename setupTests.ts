@@ -1,12 +1,12 @@
+import { configure as configureDom } from '@testing-library/dom';
 import '@testing-library/jest-dom';
-import { vi } from 'vitest';
+import '@testing-library/jest-dom/extend-expect';
+import { configure as configureReact } from '@testing-library/react';
+import { setUpRouter } from './src/tests/helpers';
 
-export const navigate = vi.fn();
+// speeds up *ByRole queries a bit
+// https://github.com/testing-library/dom-testing-library/issues/552
+configureReact({ defaultHidden: true, asyncUtilTimeout: 5000 });
+configureDom({ asyncUtilTimeout: 5000 });
 
-export function setUpRouter() {
-  vi.mock('react-router-dom', () => {
-    return {
-      useNavigate: () => navigate,
-    };
-  });
-}
+setUpRouter();

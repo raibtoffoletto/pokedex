@@ -1,5 +1,4 @@
-import { render, screen } from '@testing-library/react';
-import { setUpRouter } from '@tests';
+import { render, screen } from '@tests';
 import { describe, it, vi } from 'vitest';
 import List from './List';
 
@@ -8,8 +7,6 @@ const collectionSize = Math.floor(Math.random() * 99);
 const pokemons: IPokemon[] = new Array(collectionSize)
   .fill(null)
   .map((_, i) => ({ id: i + 1, name: `pokemon${i + 1}` }));
-
-setUpRouter();
 
 vi.mock('@hooks/usePokedex', () => {
   return {

@@ -1,14 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { navigate, setUpRouter } from '@tests';
+import { navigate, render, screen, userEvent } from '@tests';
 import { describe, expect, it, vi } from 'vitest';
 import Card from './Card';
 
 let isFaved = false;
 const isFavorite = vi.fn(() => isFaved);
 const toggleFavorite = vi.fn(() => (isFaved = !isFaved));
-
-setUpRouter();
 
 vi.mock('@hooks/useFavorites', () => {
   return {
