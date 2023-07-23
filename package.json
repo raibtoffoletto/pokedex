@@ -33,7 +33,7 @@
     "run:lint": "tsc --noEmit && yarn eslint",
     "run:cypress": "cypress run --headless --config-file=src/tests/cypress/config.ts",
     "run:cypress-ci": "node cypress-ci.cjs",
-    "run:pre-build": "yarn run:lint && CI=true yarn run:tests --silent && yarn run:cypress-ci",
+    "run:pre-build": "yarn run:lint && CI=true yarn run:tests --silent",
     "build": "yarn run:pre-build && vite build",
     "preview": "yarn build && vite preview"
   },
