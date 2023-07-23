@@ -1,3 +1,4 @@
+import '@mocks/ReactRouterDom';
 import { render, screen } from '@tests';
 import { describe, it, vi } from 'vitest';
 import List from './List';

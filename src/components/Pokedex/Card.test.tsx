@@ -1,6 +1,7 @@
 import { toggleFavorite } from '@mocks/FavoritesContext';
+import { navigate } from '@mocks/ReactRouterDom';
 import { pokemonList } from '@mocks/entities';
-import { navigate, render, screen, userEvent } from '@tests';
+import { act, render, screen, userEvent } from '@tests';
 import { describe, expect, it } from 'vitest';
 import Card from './Card';
 
@@ -36,8 +37,9 @@ describe('pokemon card component', () => {
   it('should navigate to pokemon page on card click', async () => {
     const { pokemon } = setUp();
 
-    const user = userEvent.setup();
-    await user.click(screen.getByLabelText(pokemon.name));
+    await act(
+      async () => await userEvent.click(screen.getByLabelText(pokemon.name))
+    );
 
     expect(navigate).toBeCalledTimes(1);
     expect(toggleFavorite).toBeCalledTimes(0);
@@ -49,9 +51,10 @@ describe('pokemon card component', () => {
     expect(screen.queryByTestId('FavoriteBorderIcon')).toBeTruthy();
     expect(screen.queryByTestId('FavoriteIcon')).toBeFalsy();
 
-    const user = userEvent.setup();
-    const button = screen.getByLabelText(/^toggle favorite.*/i);
-    await user.click(button);
+    await act(
+      async () =>
+        await userEvent.click(screen.getByLabelText(/^toggle favorite.*/i))
+    );
 
     rerender(<Card id={pokemon.id} name={pokemon.name} />);
 
