@@ -28,5 +28,7 @@
 
   "include": ["src"],
 
+  "exclude": ["src/tests/cypress"],
+
   "references": [{ "path": "./tsconfig.node.json" }]
 }
