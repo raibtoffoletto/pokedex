@@ -1,20 +1,14 @@
 import { APP_ROUTES, POKE_AVATAR_PREFIX } from '@constants';
+import { getIdLabel } from '@lib';
 import {
   Avatar,
-  Card as MUICard,
   CardActionArea,
   CardContent,
+  Card as MUICard,
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Favorite from './Favorite';
-
-/**
- * TODO: move utility functions to their own files.
- */
-export function getIdLabel(id: number) {
-  return `#${`${id}`.padStart(5, '0')}`;
-}
 
 export default function Card({ name, id }: IPokemon) {
   const navigate = useNavigate();

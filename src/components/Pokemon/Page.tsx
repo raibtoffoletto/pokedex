@@ -1,5 +1,5 @@
-import { getIdLabel } from '@components/Pokedex/Card';
 import { POKE_AVATAR_PREFIX } from '@constants';
+import { getIdLabel } from '@lib';
 import { Avatar, Box, Container, Typography } from '@mui/material';
 import Detail from './Detail';
 import DetailWrapper from './DetailWrapper';

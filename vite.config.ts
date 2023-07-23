@@ -71,6 +71,7 @@ export default defineConfig({
       '@components': join(__dirname, 'src/components'),
       '@constants': join(__dirname, 'src/types/constants.ts'),
       '@hooks': join(__dirname, 'src/hooks'),
+      '@lib': join(__dirname, 'src/lib'),
       '@mocks': join(__dirname, 'src/tests/mocks'),
       '@tests': join(__dirname, 'src/tests/helpers.ts'),
       '@views': join(__dirname, 'src/views'),
