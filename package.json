@@ -15,7 +15,9 @@
     "PokeAPI",
     "Pokemon",
     "PWA",
-    "React"
+    "React",
+    "Vite",
+    "Cypress"
   ],
   "author": {
     "name": "Raí Biason Toffoletto",
@@ -26,12 +28,14 @@
     "dev": "vite",
     "dev:msw": "VITE_MSW=true vite",
     "dev:cypress": "cypress open --config-file=src/tests/cypress/config.ts",
-    "run:cypress": "VITE_MSW=true vite & cypress run --headless --config-file=src/tests/cypress/config.ts",
-    "build": "yarn lint && vite build",
-    "lint": "tsc --noEmit && yarn eslint",
-    "preview": "yarn build && vite preview",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "run:tests": "vitest",
+    "run:coverage": "vitest run --coverage",
+    "run:lint": "tsc --noEmit && yarn eslint",
+    "run:cypress": "cypress run --headless --config-file=src/tests/cypress/config.ts",
+    "run:cypress-ci": "node cypress-ci.cjs",
+    "run:pre-build": "yarn run:lint && CI=true yarn run:tests --silent && yarn run:cypress-ci",
+    "build": "yarn run:pre-build && vite build",
+    "preview": "yarn build && vite preview"
   },
   "devDependencies": {
     "@faker-js/faker": "8.0.2",
@@ -47,6 +51,7 @@
     "@typescript-eslint/parser": "6.1.0",
     "@vitejs/plugin-react": "4.0.3",
     "@vitest/coverage-c8": "0.33.0",
+    "concurrently": "8.2.0",
     "cypress": "12.17.2",
     "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
