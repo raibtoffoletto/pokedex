@@ -1,6 +1,7 @@
 import { POKE_API_PREFIX } from '@constants';
+import { pokemonList } from '@mocks/entities';
+import { page01, page02 } from '@mocks/repository';
 import { rest } from 'msw';
-import { page01, page02, pokemonList } from '../mocks';
 
 export const handlers = [
   rest.get(`${POKE_API_PREFIX}/pokemon`, (req, res, ctx) => {
